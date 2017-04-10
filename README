@@ -1,0 +1,18 @@
+
+                - GRAMATICI INDEPENDENTE DE CONTEXT  -
+1) LEXER
+	In fisierul .flex am construit un automat cu mai multe stari prin care am
+descris cum ar trebui sa arate o gramatica fara erori, astfel ca am construit 
+liste separate pentru elementele din V si E si un map pentru a tine regulile.
+Astfel, daca nu erau respectate regulile din starile descrise de mine, atunci
+avem eroare de sintaxa.
+
+2) In celelalte surse, am in Main testarea pentru erori,iar apoi raspunsurile la
+ cele 3 intrebari. Astfel, pentru neterminalii nefolositori, parcurg regulile si
+ neterminalii care au numai litere mici sunt marcati, iar apoi, neterminalii care
+contin numai simboluri care sunt deja marcate, devin si ele marcate. Cei nefolo-
+sitori sunt cei care aprtin de V / lista de marcaje. Pentru --is-void, este true
+doar daca simbolul de start este inutil, iar pentru --has-e, luam doar simbolu-
+rile utile si daca au doar e, le marcam. Analog, daca mai sunt neterminali utili
+care contin doar neterminali care sunt deja marcati, devin si ei marcati. In fi-
+nal, daca simbolul de start este si el marcat, atunci limbajul contine sirul vid.
